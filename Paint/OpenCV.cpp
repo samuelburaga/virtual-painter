@@ -6,11 +6,19 @@
 using namespace cv;
 using namespace std;
 
+void webcam()
+{
+    VideoCapture video(1);
+    Mat image;
+    while (true)
+    {
+        video.read(image);
+        imshow("Web camera!", image);
+        waitKey(1);
+    }
+}
 
-void main() {
-
-    string path = "Resources/test.jpg";
-    Mat img = imread(path);
-    imshow("Image", img);
-    waitKey(0);
+void main()
+{
+    webcam();
 }
