@@ -9,9 +9,9 @@ Mat image, initialImage;
 
 void loadImage()
 {
-    image = imread("Color wheel.png", IMREAD_UNCHANGED);
+    image = imread("Resources/Images/Color wheel.png", IMREAD_UNCHANGED);
     resize(image, image, Size(200, 200));
-    initialImage = imread("Color wheel.png");
+    initialImage = imread("Resources/Images/Color wheel.png");
     resize(initialImage, initialImage, Size(200, 200));
 }
 
