@@ -60,6 +60,10 @@ void detectColors(Mat image)
         }
     }
 }
+bool additionalConditions(int x, int y)
+{
+    return pow(x - initialImage.size().width / 2, 2) + pow(y - initialImage.size().width / 2, 2) <= pow(initialImage.size().width / 2, 2);
+}
 void onMouse(int event, int x, int y, int flags, void* userdata)
 {
     static bool leftButtonPressed = false;
@@ -74,7 +78,7 @@ void onMouse(int event, int x, int y, int flags, void* userdata)
     }
     if (leftButtonPressed)
     {
-        if (x <= initialImage.size().width && y <= initialImage.size().height)
+        if (x <= initialImage.size().width && y <= initialImage.size().height && additionalConditions(x, y))
         {
             Vec3b pixel = initialImage.at<Vec3b>(y, x);
             b = pixel[0];
