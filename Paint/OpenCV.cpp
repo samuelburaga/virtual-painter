@@ -5,6 +5,16 @@
 
 using namespace cv;
 
+Mat image, initialImage;
+
+void loadImage()
+{
+    image = imread("Color wheel.png", IMREAD_UNCHANGED);
+    resize(image, image, Size(200, 200));
+    initialImage = imread("Color wheel.png");
+    resize(initialImage, initialImage, Size(200, 200));
+}
+
 bool webcam(VideoCapture& cap, int port)
 {
     cap.open(port);
@@ -30,6 +40,6 @@ void main()
     int port = 1;
     if (webcam(cap, port))
     {
-
+        loadImage();
     }
 }
