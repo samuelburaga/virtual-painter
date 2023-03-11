@@ -8,9 +8,8 @@ using namespace cv;
 int hue_minimum = 0, saturation_minimum = 0, value_minimum = 0;
 int hue_maximum = 179, saturation_maximum = 255, value_maximum = 255;
 
-void webcam()
+void detectBrush(VideoCapture cap)
 {
-    VideoCapture video(1);
     Mat image, image_hsv, mask;
     namedWindow("Trackbars", (640, 200));
     createTrackbar("Hue minimum", "Trackbars", &hue_minimum, 179);
@@ -21,7 +20,7 @@ void webcam()
     createTrackbar("Value maximum", "Trackbars", &value_maximum, 255);
     while (true)
     {
-        video.read(image);
+        cap.read(image);
         cvtColor(image, image_hsv, COLOR_BGR2HSV);
         Scalar lower_limit(hue_minimum, saturation_minimum, value_minimum), upper_limit(hue_maximum, saturation_maximum, value_maximum);
         inRange(image_hsv, lower_limit, upper_limit, mask);
@@ -31,7 +30,31 @@ void webcam()
     }
 }
 
+bool webcam(VideoCapture& cap, int port)
+{
+    cap.open(port);
+    try
+    {
+        if (cap.isOpened())
+        {
+            return true;
+        }
+        else
+        {
+            throw new std::exception("The webcam doesn't work");
+        }
+    }
+    catch (...)
+    {
+        std::cout << "The webcam doesn't work!\n";
+    }
+}
 void main()
 {
-    webcam();
+    VideoCapture cap;
+    int port = 1;
+    if (webcam(cap, port))
+    {
+        detectBrush(cap);
+    }
 }
