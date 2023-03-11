@@ -6,6 +6,7 @@
 using namespace cv;
 
 Mat image, initialImage;
+int b = 255, g = 255, r = 0;
 
 void onMouse(int event, int x, int y, int flags, void* userdata)
 {
@@ -15,16 +16,22 @@ void onMouse(int event, int x, int y, int flags, void* userdata)
         leftButtonPressed = true;
     }
     else
-        if (event == EVENT_LBUTTONUP)
-        {
-            leftButtonPressed = false;
-        }
+    if (event == EVENT_LBUTTONUP)
+    {
+        leftButtonPressed = false;
+    }
     if (leftButtonPressed)
     {
-
+        if (x <= initialImage.size().width && y <= initialImage.size().height)
+        {
+            Vec3b pixel = initialImage.at<Vec3b>(y, x);
+            b = pixel[0];
+            g = pixel[1];
+            r = pixel[2];
+            std::cout << "You picked the color: rgb(" << r << ", " << g << ", " << b << ")\n";
+        }
     }
 }
-
 void stream(VideoCapture cap)
 {
     namedWindow("Virtual painter");
