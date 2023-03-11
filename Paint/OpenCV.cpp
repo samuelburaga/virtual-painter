@@ -7,6 +7,11 @@ using namespace cv;
 
 Mat image, initialImage;
 
+void onMouse(int event, int x, int y, int flags, void* userdata)
+{
+
+}
+
 void stream(VideoCapture cap)
 {
     namedWindow("Virtual painter");
