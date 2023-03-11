@@ -28,7 +28,13 @@ void stream(VideoCapture cap)
             srcAlpha = channels[3];
             srcRGB.copyTo(dstROI, srcAlpha);
         }
-
+        imshow("Virtual painter", newFrame);
+        setMouseCallback("Virtual painter", onMouse, NULL);
+        char key = (char)waitKey(30);
+        if (key == 27)
+        {
+            break;
+        }
     }
 }
 void loadImage()
