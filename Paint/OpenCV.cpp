@@ -9,7 +9,20 @@ Mat image, initialImage;
 
 void onMouse(int event, int x, int y, int flags, void* userdata)
 {
+    static bool leftButtonPressed = false;
+    if (event == EVENT_LBUTTONDOWN)
+    {
+        leftButtonPressed = true;
+    }
+    else
+        if (event == EVENT_LBUTTONUP)
+        {
+            leftButtonPressed = false;
+        }
+    if (leftButtonPressed)
+    {
 
+    }
 }
 
 void stream(VideoCapture cap)
