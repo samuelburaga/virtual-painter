@@ -8,16 +8,21 @@ using namespace cv;
 int hue_minimum = 0, saturation_minimum = 0, value_minimum = 0;
 int hue_maximum = 179, saturation_maximum = 255, value_maximum = 255;
 
-void detectBrush(VideoCapture cap)
+void Trackbars()
 {
-    Mat image, image_hsv, mask;
-    namedWindow("Trackbars", (640, 200));
     createTrackbar("Hue minimum", "Trackbars", &hue_minimum, 179);
     createTrackbar("Saturation minimum", "Trackbars", &saturation_minimum, 255);
     createTrackbar("Value minimum", "Trackbars", &value_minimum, 255);
     createTrackbar("Hue maximum", "Trackbars", &hue_maximum, 179);
     createTrackbar("Saturation maximum", "Trackbars", &saturation_maximum, 255);
     createTrackbar("Value maximum", "Trackbars", &value_maximum, 255);
+}
+
+void detectBrush(VideoCapture cap)
+{
+    Mat image, image_hsv, mask;
+    namedWindow("Trackbars", (640, 200));
+    Trackbars();
     while (true)
     {
         cap.read(image);
