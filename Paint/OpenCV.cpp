@@ -4,21 +4,17 @@
 #include <iostream>
 
 using namespace cv;
-using namespace std;
 
-void webcam()
+bool webcam(VideoCapture& cap, int port)
 {
-    VideoCapture video(1);
-    Mat image;
-    while (true)
-    {
-        video.read(image);
-        imshow("Web camera!", image);
-        waitKey(1);
-    }
-}
 
+}
 void main()
 {
-    webcam();
+    VideoCapture cap;
+    int port = 1;
+    if (webcam(cap, port))
+    {
+
+    }
 }
