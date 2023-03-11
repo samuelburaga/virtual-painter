@@ -7,7 +7,22 @@ using namespace cv;
 
 bool webcam(VideoCapture& cap, int port)
 {
-
+    cap.open(port);
+    try
+    {
+        if (cap.isOpened())
+        {
+            return true;
+        }
+        else
+        {
+            throw new std::exception("The webcam doesn't work");
+        }
+    }
+    catch (...)
+    {
+        std::cout << "The webcam doesn't work!\n";
+    }
 }
 void main()
 {
