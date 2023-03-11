@@ -1,7 +1,7 @@
-# Virtual Painter with Color Wheel using OpenCV
+<h1 align = "center">Virtual Painter with Color Wheel using OpenCV</h1>
 This project is a virtual painter that allows users to draw on their computer screen using a variety of colors selected from a color wheel. The project is built using OpenCV with the C++ language and Visual Studio.
 
-## Installation
+>## Installation
 To install this project:
 * Clone the repository (or download the zip file and extract it)
 ```bash
@@ -10,7 +10,7 @@ git clone https://github.com/samuelburaga/virtual-painter.git
 * Open the folder called "Paint" in Visual Studio
 * Run the file called "OpenCV.cpp"
 
-## Usage
+>## Usage
 Once the program is running, you can select a color from the color wheel and start drawing on your computer screen. If you're getting an error, it's very likely that your webcam hasn't connected. In my code I used my second webcam which has port number 1. Make sure you have at least one webcam connected. If you only have one, replace 1 with 0 in the following line of code in OpenCV.cpp:
 ```C plus plus
  int port = 1;
@@ -20,7 +20,7 @@ Next, copy the values of the sliders and replace them in order in this line of c
 ```C plus plus
 std::vector <std::vector<int>> myColors{ {72, 0, 0, 118, 255, 50} };
 ```
-## Tools Used
+>## Tools Used
 This project was built using the following tools:
 
 * Visual Studio 
