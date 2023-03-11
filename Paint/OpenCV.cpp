@@ -7,7 +7,26 @@ using namespace cv;
 
 Mat image, initialImage;
 int b = 255, g = 255, r = 0;
-
+std::vector <std::vector<int>> myColors{ {72, 0, 0, 118, 255, 50} };
+std::vector <std::vector<int>> newPoints;
+std::vector <Scalar> selectedColors;
+void detectColors(Mat image)
+{
+    Mat imageHSV, mask;
+    cvtColor(image, imageHSV, COLOR_BGR2HSV);
+    for (int index = 0; index < myColors.size(); index++)
+    {
+        Scalar lowerLimit(myColors[index][0], myColors[index][1], myColors[index][2]);
+        Scalar upperLimit(myColors[index][3], myColors[index][4], myColors[index][5]);
+        inRange(imageHSV, lowerLimit, upperLimit, mask);
+        Point brushTip = getContours(mask, image);
+        if (brushTip.x != 0 && brushTip.y != 0)
+        {
+            newPoints.push_back({ brushTip.x, brushTip.y, index });
+            selectedColors.push_back(Scalar(b, g, r));
+        }
+    }
+}
 void onMouse(int event, int x, int y, int flags, void* userdata)
 {
     static bool leftButtonPressed = false;
