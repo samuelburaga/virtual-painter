@@ -24,8 +24,11 @@ std::vector <std::vector<int>> myColors{ {72, 0, 0, 118, 255, 50} };
 This project was built using the following tools:
 
 * Visual Studio 
-<br clear = "all"><img src = "https://1000logos.net/wp-content/uploads/2020/08/Visual-Studio-Logo.png" width = "20%" height = "20%" style = "margin-top: 10px; margin-left: 0px">
-* OpenCV <br clear = "all"><img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/OpenCV_Logo_with_text_svg_version.svg/1662px-OpenCV_Logo_with_text_svg_version.svg.png" width = "10%" height = "10%" style = "margin-top: 20px; margin-left: 100px">
+<br clear = "all"><img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Visual_Studio_Icon_2019.svg/1030px-Visual_Studio_Icon_2019.svg.png" width = "10%" height = "10%">
+
+* OpenCV <br clear = "all">
+
+    <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/OpenCV_Logo_with_text_svg_version.svg/1662px-OpenCV_Logo_with_text_svg_version.svg.png" width = "10%" height = "10%" margin-top = 20px; margin-left = 100px>
 
 ## License
 This project is licensed under the **MIT** license. See the **LICENSE** file for more details.
