@@ -5,30 +5,30 @@
 
 using namespace cv;
 
-int hue_minimum = 0, saturation_minimum = 0, value_minimum = 0;
-int hue_maximum = 179, saturation_maximum = 255, value_maximum = 255;
+int hueMinimum = 0, saturationMinimum = 0, valueMinimum = 0;
+int hueMaximum = 179, saturationMaximum = 255, valueMaximum = 255;
 
 void Trackbars()
 {
-    createTrackbar("Hue minimum", "Trackbars", &hue_minimum, 179);
-    createTrackbar("Saturation minimum", "Trackbars", &saturation_minimum, 255);
-    createTrackbar("Value minimum", "Trackbars", &value_minimum, 255);
-    createTrackbar("Hue maximum", "Trackbars", &hue_maximum, 179);
-    createTrackbar("Saturation maximum", "Trackbars", &saturation_maximum, 255);
-    createTrackbar("Value maximum", "Trackbars", &value_maximum, 255);
+    createTrackbar("Hue minimum", "Trackbars", &hueMinimum, 179);
+    createTrackbar("Saturation minimum", "Trackbars", &saturationMinimum, 255);
+    createTrackbar("Value minimum", "Trackbars", &valueMinimum, 255);
+    createTrackbar("Hue maximum", "Trackbars", &hueMaximum, 179);
+    createTrackbar("Saturation maximum", "Trackbars", &saturationMaximum, 255);
+    createTrackbar("Value maximum", "Trackbars", &valueMaximum, 255);
 }
 
 void detectBrush(VideoCapture cap)
 {
-    Mat image, image_hsv, mask;
+    Mat image, imageHSV, mask;
     namedWindow("Trackbars", (640, 200));
     Trackbars();
     while (true)
     {
         cap.read(image);
-        cvtColor(image, image_hsv, COLOR_BGR2HSV);
-        Scalar lower_limit(hue_minimum, saturation_minimum, value_minimum), upper_limit(hue_maximum, saturation_maximum, value_maximum);
-        inRange(image_hsv, lower_limit, upper_limit, mask);
+        cvtColor(image, imageHSV, COLOR_BGR2HSV);
+        Scalar lowerLimit(hueMinimum, saturationMinimum, valueMinimum), upperLimit(hueMaximum, saturationMaximum, valueMaximum);
+        inRange(imageHSV, lowerLimit, upperLimit, mask);
         imshow("Camera web!", image);
         imshow("Camera web mask!", mask);
         waitKey(1);
