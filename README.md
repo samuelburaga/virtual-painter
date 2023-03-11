@@ -1,5 +1,5 @@
 <h1 align = "center">Virtual Painter with Color Wheel using OpenCV</h1>
-This project is a virtual painter that allows users to draw on their computer screen using a variety of colors selected from a color wheel. The project is built using OpenCV with the C++ language and Visual Studio
+This project is a virtual painter that allows users to draw on their computer screen using a variety of colors selected from a color wheel. The project is built using OpenCV with the C++ language and Visual Studio.<br>
 
 >## Installation
 To install this project:
