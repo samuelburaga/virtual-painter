@@ -9,6 +9,8 @@ Mat image, initialImage;
 
 void stream(VideoCapture cap)
 {
+    namedWindow("Virtual painter");
+    setMouseCallback("Virtual painter", onMouse, NULL);
     Mat frame;
     while (true)
     {
