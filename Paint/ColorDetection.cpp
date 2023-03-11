@@ -17,7 +17,6 @@ void Trackbars()
     createTrackbar("Saturation maximum", "Trackbars", &saturationMaximum, 255);
     createTrackbar("Value maximum", "Trackbars", &valueMaximum, 255);
 }
-
 void detectBrush(VideoCapture cap)
 {
     Mat image, imageHSV, mask;
@@ -34,7 +33,6 @@ void detectBrush(VideoCapture cap)
         waitKey(1);
     }
 }
-
 bool webcam(VideoCapture& cap, int port)
 {
     cap.open(port);
