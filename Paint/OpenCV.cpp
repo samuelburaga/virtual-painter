@@ -109,6 +109,8 @@ void stream(VideoCapture cap)
             srcAlpha = channels[3];
             srcRGB.copyTo(dstROI, srcAlpha);
         }
+        detectColors(newFrame);
+        drawOnCanvas(newFrame);
         imshow("Virtual painter", newFrame);
         setMouseCallback("Virtual painter", onMouse, NULL);
         char key = (char)waitKey(30);
