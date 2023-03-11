@@ -10,6 +10,31 @@ int b = 255, g = 255, r = 0;
 std::vector <std::vector<int>> myColors{ {72, 0, 0, 118, 255, 50} };
 std::vector <std::vector<int>> newPoints;
 std::vector <Scalar> selectedColors;
+Point getContours(Mat imageMask, Mat image)
+{
+    std::vector <std::vector<Point>> contours;
+    std::vector <Vec4i> hierarchy;
+    findContours(imageMask, contours, hierarchy, RETR_EXTERNAL, CHAIN_APPROX_SIMPLE);
+    std::vector <std::vector<Point>> contoursPoly(contours.size());
+    std::vector <Rect> bounding_rect(contours.size());
+    Point brushTip(0, 0);
+    for (int i = 0; i < contours.size(); i++)
+    {
+        int area = contourArea(contours[i]);
+        if (area > 1000)
+        {
+            float perimeter = arcLength(contours[i], true);
+            approxPolyDP(contours[i], contoursPoly[i], 0.02 * perimeter, true);
+            bounding_rect[i] = boundingRect(contoursPoly[i]);
+            brushTip.x = bounding_rect[i].x + bounding_rect[i].width / 2;
+            brushTip.y = bounding_rect[i].y;
+            drawContours(image, contoursPoly, i, Scalar(255, 0, 255), 2);
+            rectangle(image, bounding_rect[i].tl(), bounding_rect[i].br(), Scalar(0, 255, 0), 5);
+            bounding_rect[i] = boundingRect(contoursPoly[i]);
+        }
+    }
+    return brushTip;
+}
 void detectColors(Mat image)
 {
     Mat imageHSV, mask;
