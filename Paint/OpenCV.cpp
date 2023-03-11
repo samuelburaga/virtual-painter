@@ -10,6 +10,14 @@ int b = 255, g = 255, r = 0;
 std::vector <std::vector<int>> myColors{ {72, 0, 0, 118, 255, 50} };
 std::vector <std::vector<int>> newPoints;
 std::vector <Scalar> selectedColors;
+
+void drawOnCanvas(Mat image)
+{
+    for (int index = 0; index < newPoints.size(); index++)
+    {
+        circle(image, Point(newPoints[index][0], newPoints[index][1]), 7, selectedColors[index], FILLED);
+    }
+}
 Point getContours(Mat imageMask, Mat image)
 {
     std::vector <std::vector<Point>> contours;
