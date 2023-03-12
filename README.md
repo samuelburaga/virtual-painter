@@ -10,7 +10,7 @@ git clone https://github.com/samuelburaga/virtual-painter.git
 ```
 * Download a version of the OpenCV library from https://opencv.org/releases/
 * Create a new Visual Studio project
-* Follow the steps on this tutorial to link the library with your project: https://youtu.be/2FYm3GOonhk?t=230
+* Follow the steps of this tutorial to link the library with your project: https://youtu.be/2FYm3GOonhk?t=230
 * Copy the Resources folder and the .cpp files into your project folder
 * Run the file called "OpenCV.cpp" Note that you must exclude ColorDetection.cpp file from the project because you can only have one main function. Another solution is to comment all the code of the file.
 
